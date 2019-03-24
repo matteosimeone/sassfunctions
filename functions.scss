@@ -1,0 +1,14 @@
+// Transform a pixel width value ($target) in percentage, based on container width ($context).
+
+function px-to-pc($target, $context) {
+  @return ($target / $context) * 100%;
+  }
+
+// Calculate the flex-basis value based on the number of items ($items) per row that makes all of them same width.
+// $gutter is a variable that stores gutter value between flex items.
+
+@function flexbasis-per-line($items) {
+    $g-pct: px-to-pc($gutter) * 2;
+    $g-total: $items * $g-pct;
+    @return (100% / $items) - $g-total;
+  }
